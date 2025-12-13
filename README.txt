@@ -18,7 +18,14 @@ What economic metrics do we want:
 • GDP
 • GDP per capita
 • GDP (PPP)
-• 
+• Average hours worked per year
+• Government spending as percent of GDP
+• Taxes on goods and services, percent of total revenue
+• Gini income inequality index
+• Poverty, percent of population
+• Percent income earned by the top 10 percent of earners
+• Trade balance, billion USD
+• Inflation: percent change in the Consumer Price Index
 
 Sat: 
 
