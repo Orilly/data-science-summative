@@ -33,9 +33,12 @@ What analyses are we doing:
 • Linear regression
 
 Sat: 
+• Bruno gets data
+• Eddie cleans data
+• Oscar writes that we cleaned data
 
 Sun:
+• Finish the analysis
 
 Mon: 
-
-• Submission
+• Review & Submission
