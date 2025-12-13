@@ -9,7 +9,7 @@ Question:
 • Multiple countries over time?
 • Short term vs long term
 
-What's to do:
+Who's doing what:
 • Eddie - Big Boy Coder 
 • Bruno - Product Manager & Data Visualisation
 • Oscar is the narrative guy 
@@ -26,6 +26,11 @@ What economic metrics do we want:
 • Percent income earned by the top 10 percent of earners
 • Trade balance, billion USD
 • Inflation: percent change in the Consumer Price Index
+
+All countries 2015.
+
+What analyses are we doing:
+• Linear regression
 
 Sat: 
 
