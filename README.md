@@ -10,5 +10,20 @@ Question:
 • Short term vs long term
 
 What's to do:
+• Eddie - Big Boy Coder 
+• Bruno - Product Manager & Data Visualisation
+• Oscar is the narrative guy 
+
+What economic metrics do we want:
+• GDP
+• GDP per capita
+• GDP (PPP)
+• 
+
+Sat: 
+
+Sun:
+
+Mon: 
 
 • Submission
