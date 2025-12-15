@@ -1,8 +1,8 @@
 This repository is for our data science group summative assessment, investigating the question ***What economic indicators best predict happiness globally?***
 
 The repo contains the following:
-- **main.ipynb** - notebook containing our project code and report
-- **dashboard.py** - file for pyshiny dashboard
+- **main.ipynb** - notebook containing our main report (alongside data analysis code)
+- **dashboard.py** - file for pyshiny dashboard - a secondary application, interactive dashboard displaying linear regression data + data visualisation for the economic indicators discussed in our report
 - **requirements.txt** - includes required modules
 - **data/** - main data folder, containing datasets downloaded from theglobaleconomy.com
 - **old_data/** - folder including original data downloaded for the project
