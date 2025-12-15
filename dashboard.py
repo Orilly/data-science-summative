@@ -22,6 +22,7 @@ rename_dict = {"Happiness Index 0 (unhappy) - 10 (happy)": "happiness",
                 "GDP per capita current U.S. dollars": "GDP_per_capita",
                 "GDP per capita Purchasing Power Parity": "GDPPPP",
                 "Human Development Index (0 - 1)": "HDI",
+                "Percent urban population": "Percent_urban_population",
                 "Value added in the services sector as percent of GDP": "Services_value_added_GDP"}
 
 df = df.rename(rename_dict, axis=1)
