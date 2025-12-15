@@ -10,7 +10,7 @@ The repo contains the following:
 
 To run the code for this project:
 - download github repo and run 'pip install -r requirements.txt'
-- open **main.ipynb** in a jupyter environment and run all cells
+- open main.ipynb in a jupyter environment and run all cells
 - to launch pyshiny dashboard, run 'shiny run --reload --launch-browser dashboard.py'
 
 Student ID numbers of group members:
