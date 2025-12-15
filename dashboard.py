@@ -1,11 +1,12 @@
-from shiny import App, ui, render, reactive
+from shiny import App, ui, render # import necessary libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
 import seaborn as sns
 import os
-import scipy.stats as stats
+
+## load, collate and clean data
 
 files = os.listdir("data/")
 merged = None
@@ -15,7 +16,6 @@ for filename in files:
         merged = _df
     else:
         merged = pd.merge(merged, _df, on=["Country", "Year", "Code", "ContinentCode"], how="outer")
-df = merged[(merged["Year"] >= 2015) & (merged["Year"] <= 2024)]
 
 rename_dict = {"Happiness Index 0 (unhappy) - 10 (happy)": "happiness",
                "Gross Domestic Product billions of U.S. dollars": "GDP",
@@ -25,32 +25,31 @@ rename_dict = {"Happiness Index 0 (unhappy) - 10 (happy)": "happiness",
                 "Percent urban population": "Percent_urban_population",
                 "Value added in the services sector as percent of GDP": "Services_value_added_GDP"}
 
+df = merged[(merged["Year"] >= 2015) & (merged["Year"] <= 2024)]
 df = df.rename(rename_dict, axis=1)
 econ_indicators = ["GDP", "GDPPPP", "GDP_per_capita", "Percent_urban_population", "Services_value_added_GDP", "HDI"]
 years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
 
+## set up shiny app GUI
 
-app_ui = ui.page_sidebar(
-    ui.sidebar(
-        ui.h4("Controls"),
-        ui.input_select("indicator", "Economic indicator", choices=econ_indicators, selected="HDI"),
-        ui.input_select("year", "Year", choices=years, selected=2018),
-    ),
-    ui.card(
-        ui.h4("Graph"),
-        ui.output_plot("plot_data"),
-        style="margin:8px; padding:10px;"
-    ),
-    ui.layout_columns(
-        ui.card(
-            ui.h4("Inferential statistics"),
+gui = ui.page_sidebar(
+    ui.sidebar(ui.h4("Variables"),
+               ui.input_select("indicator", "Economic indicator", choices=econ_indicators, selected="HDI"),
+               ui.input_select("year", "Year", choices=years, selected=2018)),
+
+    ui.card(ui.h4("Graph"),
+            ui.output_plot("plot_data"),
+            style="margin:8px; padding:10px;"),
+
+    ui.card(ui.h4("Descriptive and inferential statistics"),
             ui.output_text("R2"),
             ui.output_text("pvalue"),
-            style="margin:8px; padding:10px;"
-        ),
-    ),
-    title="Economic metrics predicting happiness"
+            style="margin:8px; padding:10px;"),   
+
+    title="Economic indicators predicting happiness (linear regression)"
 )
+
+## set up shiny app server
 
 def server(input, output, session):
     @output
@@ -72,11 +71,9 @@ def server(input, output, session):
     def plot_data():
         data = df[df["Year"] == int(input.year())]
         fig, ax = plt.subplots(figsize=(6, 4))
-        #plt.scatter(x=input.indicator(), y="happiness", data=data)
         sns.regplot(x=input.indicator(), y="happiness", data=data)
-        #ax.set_ylabel("Number of lines")
-        #ax.set_xlabel("Status")
-        #fig.tight_layout()
         return fig
 
-app = App(app_ui, server)
+## run app
+
+app = App(gui, server)
